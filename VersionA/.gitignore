@@ -1,0 +1,36 @@
+# ===== Build / compiled files =====
+*.o
+*.obj
+*.exe
+*.elf
+*.hex
+*.bin
+*.map
+
+# ===== Generated C / build output =====
+build/
+bin/
+out/
+target/
+
+# ===== KIELER / Eclipse workspace =====
+.metadata/
+.settings/
+.project
+.classpath
+
+# ===== IDE / editor files =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Temporary files =====
+*.tmp
+*.bak
+*.log
