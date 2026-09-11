@@ -1,0 +1,158 @@
+
+//The simulation doesn't work in manual mode on my laptop but dynamic mode
+//Please use dynamic mode and look at the variables if manual mode doesn't work
+
+@ClocksUseSD
+scchart Task2 {
+ 
+  //output 
+  output bool EW_R, EW_Y, EW_G
+  output bool NS_R, NS_Y, NS_G
+  //pedestrian light outputs
+  output bool EW_P, NS_P
+  //pedestrian request inputs
+  input bool EWraised, NSraised
+  //output
+  
+  //time variables
+  clock t =0
+  clock pNS =0
+  clock pEW =0
+  const int t1 = 10
+  const int t2 = 10
+  const int t3 = 10
+  const int t4 = 10
+  const int t5 = 10
+  const int t6 = 10
+  //pedestrian walk time
+  const int tPed = 5
+  //shared request variables
+  bool EWrequest = 0
+  bool NSrequest = 0
+  //signals used to clear requests
+  bool EWserve = 0
+  bool NSserve = 0
+  //time variables
+  
+  
+  region Intersection_Light{
+    //NSG walk
+    //red off and green on if entry
+    //pedestrian light on if request is pending
+    initial state NSGWalk{
+      entry do NS_R = 0
+      entry do NS_G = 1
+      entry do EW_R = 1
+      entry do NS_P = NSrequest
+      entry do pNS = 0
+    }
+    if pNS >= tPed do NS_P = 0 go to NSGNoWalk
+    //pedestrian walk time reached
+
+    //NSG no walk
+    //pedestrian light off after walk time
+    state NSGNoWalk{
+      entry do NS_P = 0
+      exit do NS_G = 0
+    }
+    if t >= t1 do t =0 go to NSY
+    //if t1 reached, reset t and go NSY
+    //NSG
+    
+    
+    //NYS
+    //yellow on if entry
+    //yellow off if exit
+    state NSY{
+      entry do NS_Y = 1
+      entry do NSserve = 1
+      exit do NS_Y = 0
+    }
+    if t >= t2 do t =0 go to AllRed1
+    //if t2 reached, reset t and go allred1
+    //NSY
+    
+    //AllRed1
+    //all red on if entry
+    state AllRed1{
+      entry do NS_R = 1 
+      entry do EW_R =1
+    }
+    if t >= t3 do t =0 go to EWGWalk
+    //if t3 reached, reset t and go EWG
+    //Allred1
+    
+    
+    //EWG walk
+    //red off and green on if entry
+    //pedestrian light on if request is pending
+    state EWGWalk{
+      entry do EW_R = 0
+      entry do EW_G = 1
+      entry do EW_P = EWrequest
+      entry do pEW = 0
+    }
+    if pEW >= tPed do EW_P = 0 go to EWGNoWalk
+    //pedestrian walk time reached
+
+    //EWG no walk
+    //pedestrian light off after walk time
+    state EWGNoWalk{
+      entry do EW_P = 0
+      exit do EW_G = 0
+    }
+    if t >= t4 do t =0 go to EWY
+    //EWG
+    
+    
+    //EWY
+    state EWY{
+      entry do EW_Y = 1
+      entry do EWserve = 1
+      exit do EW_Y = 0
+    }
+    if t >= t5 do t =0 go to AllRed2
+    //EWY
+    
+    
+    //AllRed2
+    state AllRed2{
+      entry do NS_R = 1 
+      entry do EW_R =1
+    }
+    if t >= t6 do t =0 go to NSGWalk
+    //if t6 reached, go back to NSG
+    //Allred2
+    
+  }
+
+  //NS pedestrian request region
+  //request is latched until the NS green phase has been served
+  region NS_Request {
+    initial state NS_Waiting {
+    }
+    //save a raised request
+    if NSraised do NSrequest = 1 go to NS_Pending
+    //clear an unused serve signal
+    if NSserve do NSserve = 0 go to NS_Waiting
+    state NS_Pending {
+    }
+    //clear request after the NS green phase
+    if NSserve do NSrequest = 0 go to NS_Waiting
+  }
+
+  //EW pedestrian request region
+  //request is latched until the EW green phase has been served
+  region EW_Request {
+    initial state EW_Waiting {
+    }
+    //save a raised request
+    if EWraised do EWrequest = 1 go to EW_Pending
+    //clear an unused serve signal
+    if EWserve do EWserve = 0 go to EW_Waiting
+    state EW_Pending {
+    }
+    //clear request after the EW green phase
+    if EWserve do EWrequest = 0 go to EW_Waiting
+  }
+}
