@@ -1,5 +1,5 @@
-#ifndef TASK1_H
-#define TASK1_H
+#ifndef TASK2_H
+#define TASK2_H
 /*
  * Automatically generated C code by
  * KIELER SCCharts - The Key to Efficient Modeling
@@ -15,8 +15,18 @@ typedef struct {
   char NS_R;
   char NS_Y;
   char NS_G;
+  char EW_P;
+  char NS_P;
+  char EWraised;
+  char NSraised;
   double t;
-  int _taken_transitions[6];
+  double pNS;
+  double pEW;
+  char EWrequest;
+  char NSrequest;
+  char EWserve;
+  char NSserve;
+  int _taken_transitions[12];
   double deltaT;
   double sleepT;
   char _Atrig;
@@ -25,6 +35,8 @@ typedef struct {
   char _Atrig3;
   char _Atrig4;
   char _Atrig5;
+  char _Atrig6;
+  char _Atrig7;
   char _g2;
   char _g4;
   char _g6;
@@ -80,15 +92,42 @@ typedef struct {
   char _g77;
   char _g80;
   char _g81;
+  char _g82;
+  char _g84;
   char _g86;
   char _g87;
   char _g88;
   char _g89;
+  char _g90;
   char _g92;
+  char _g93;
   char _g96;
   char _g97;
   char _g98;
+  char _g100;
+  char _g102;
+  char _g103;
+  char _g104;
+  char _g105;
   char _g106;
+  char _g108;
+  char _g109;
+  char _g112;
+  char _g113;
+  char _g114;
+  char _g116;
+  char _g118;
+  char _g119;
+  char _g120;
+  char _g121;
+  char _g122;
+  char _g124;
+  char _g125;
+  char _g128;
+  char _g129;
+  char _g130;
+  char _g134;
+  char _g154;
   char _GO;
   char _cg3;
   char _cg4;
@@ -132,6 +171,24 @@ typedef struct {
   char _cg90;
   char _cg93;
   char _cg96;
+  char _cg99;
+  char _cg100;
+  char _cg104;
+  char _cg103;
+  char _cg106;
+  char _cg109;
+  char _cg112;
+  char _cg115;
+  char _cg116;
+  char _cg120;
+  char _cg119;
+  char _cg122;
+  char _cg125;
+  char _cg128;
+  char _cg134;
+  char _cg137;
+  char _cg142;
+  char _cg145;
   char _g9_e1;
   char _g17_e2;
   char _g25_e1;
@@ -144,30 +201,46 @@ typedef struct {
   char _g81_e2;
   char _g89_e1;
   char _g97_e2;
+  char _g105_e1;
+  char _g113_e2;
+  char _g121_e1;
+  char _g129_e2;
   char _TERM;
-  char _pg88;
-  char _pg73_e1;
-  char _pg73;
-  char _pg81;
+  char _pg128;
+  char _pg113_e2;
+  char _pg113;
+  char _pg105;
+  char _pg116;
+  char _pg17;
+  char _pg9;
+  char _pg17_e2;
+  char _pg120;
+  char _pg114;
   char _pg10;
   char _pg4;
   char _pg13;
-  char _pg29;
-  char _pg20;
-  char _pg26;
   char _pg42;
   char _pg36;
   char _pg45;
   char _pg58;
   char _pg52;
   char _pg61;
+  char _pg125;
+  char _pg73_e1;
+  char _pg73;
+  char _pg81;
+  char _pg122;
+  char _pg134;
   char _pg74;
   char _pg68;
   char _pg77;
+  char _pg106;
+  char _pg100;
+  char _pg109;
 } TickData;
 
 void reset(TickData* d);
 void logic(TickData* d);
 void tick(TickData* d);
 
-#endif /* !TASK1_H */
+#endif /* !TASK2_H */

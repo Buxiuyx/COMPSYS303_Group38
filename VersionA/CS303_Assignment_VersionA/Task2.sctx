@@ -133,8 +133,6 @@ scchart Task2 {
     }
     //save a raised request
     if NSraised do NSrequest = 1 go to NS_Pending
-    //clear an unused serve signal
-    if NSserve do NSserve = 0 go to NS_Waiting
     state NS_Pending {
     }
     //clear request after the NS green phase
@@ -148,8 +146,6 @@ scchart Task2 {
     }
     //save a raised request
     if EWraised do EWrequest = 1 go to EW_Pending
-    //clear an unused serve signal
-    if EWserve do EWserve = 0 go to EW_Waiting
     state EW_Pending {
     }
     //clear request after the EW green phase

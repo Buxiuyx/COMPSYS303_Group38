@@ -26,8 +26,11 @@ scchart Task1 {
     //red off green on if entry
     //green off if exit
     initial state NSG{
-      entry do NS_R = 0
-      entry do NS_G = 1
+      entry do {
+        NS_R = 0;
+        NS_G = 1;
+        EW_R = 1
+      }
       exit do NS_G = 0
     }
     if t >= t1 do t =0 go to NSY
@@ -49,8 +52,10 @@ scchart Task1 {
     //AllRed1
     //all red on if entry
     state AllRed1{
-      entry do NS_R = 1 
-      entry do EW_R =1
+      entry do {
+        NS_R = 1;
+        EW_R =1
+      }
     }
     if t >= t3 do t =0 go to EWG
     //if t3 reached, reset t and go EWG
@@ -59,8 +64,11 @@ scchart Task1 {
     
     //EWG
     state EWG{
-      entry do EW_R = 0
-      entry do EW_G = 1
+      entry do {
+        EW_R = 0;
+        EW_G = 1;
+        NS_R = 1;
+      }
       exit do EW_G = 0
     }
     if t >= t4 do t =0 go to EWY
@@ -78,8 +86,10 @@ scchart Task1 {
     
     //AllRed2
     state AllRed2{
-      entry do NS_R = 1 
-      entry do EW_R =1
+      entry do {
+        NS_R = 1;
+        EW_R =1
+      }
     }
     if t >= t6 do t =0 go to NSG
     //if t6 reached, go back to NSG

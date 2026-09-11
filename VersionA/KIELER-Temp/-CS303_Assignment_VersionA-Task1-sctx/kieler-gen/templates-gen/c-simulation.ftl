@@ -812,11 +812,6 @@ void receiveVariables() {
         if(item != NULL) {
             ${tickdata_name}._pg88 = item->valueint;
         }
-        // Receive _region0_Intersection_Light_t
-        item = cJSON_GetObjectItemCaseSensitive(root, "_region0_Intersection_Light_t");
-        if(item != NULL) {
-            ${tickdata_name}._region0_Intersection_Light_t = item->valuedouble;
-        }
         // Receive _taken_transitions
         item = cJSON_GetObjectItemCaseSensitive(root, "_taken_transitions");
         if(item != NULL) {
@@ -824,6 +819,11 @@ void receiveVariables() {
                 cJSON *item0 = cJSON_GetArrayItem(item, i0);
                 ${tickdata_name}._taken_transitions[i0] = item0->valueint;
             }
+        }
+        // Receive t
+        item = cJSON_GetObjectItemCaseSensitive(root, "t");
+        if(item != NULL) {
+            ${tickdata_name}.t = item->valuedouble;
         }
     }
   
@@ -1143,8 +1143,6 @@ void sendVariables(int send_interface) {
     cJSON_AddItemToObject(root, "_pg81", cJSON_CreateBool(${tickdata_name}._pg81));
     // Send _pg88
     cJSON_AddItemToObject(root, "_pg88", cJSON_CreateBool(${tickdata_name}._pg88));
-    // Send _region0_Intersection_Light_t
-    cJSON_AddItemToObject(root, "_region0_Intersection_Light_t", cJSON_CreateNumber(${tickdata_name}._region0_Intersection_Light_t));
     // Send _taken_transitions
     array = cJSON_CreateArray();
     for (int i0 = 0; i0 < 6; i0++) {
@@ -1152,6 +1150,8 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(array, item0);
     }
     cJSON_AddItemToObject(root, "_taken_transitions", array);
+    // Send t
+    cJSON_AddItemToObject(root, "t", cJSON_CreateNumber(${tickdata_name}.t));
     
     if (send_interface) {
         cJSON *interface = cJSON_CreateObject();
@@ -2162,16 +2162,16 @@ void sendVariables(int send_interface) {
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("sccharts-generated"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("float"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_region0_Intersection_Light_t", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("sccharts-generated"));
         cJSON_AddItemToArray(properties, cJSON_CreateString("simulation"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("int"));
         cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "_taken_transitions", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("sccharts-generated"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("float"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "t", info);
         
         cJSON_AddItemToObject(root, "#interface", interface);
     }
