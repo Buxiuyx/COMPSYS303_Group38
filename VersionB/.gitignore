@@ -1,0 +1,76 @@
+# ===== Build / compiled files =====
+*.o
+*.obj
+*.exe
+*.elf
+*.hex
+*.bin
+*.map
+
+# ===== Generated C / build output =====
+build/
+bin/
+out/
+target/
+
+# ===== KIELER / Eclipse workspace =====
+.metadata/
+.settings/
+.project
+.classpath
+
+# ===== IDE / editor files =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Temporary files =====
+*.tmp
+*.bak
+*.log
+
+# Eclipse & CDT Metadata
+.metadata/
+.settings/
+.project
+.classpath
+.cproject
+.loadpath
+.recommenders
+*.launch
+*.factorypath
+
+# Build Output & Binaries
+bin/
+obj/
+debug/
+release/
+*.o
+*.a
+*.elf
+*.srec
+*.flash
+*.map
+*.hex
+
+# BSP & Generated Makefiles
+# (Note: Keep bsp/ public if you want teammates to build without regenerating, or ignore if managed)
+# bsp/obj/
+# bsp/drivers/
+
+# Temporary and Backup Files
+*.tmp
+*.bak
+*.swp
+*~
+.~*
+
+# OS-Generated Files
+.DS_Store
+Thumbs.db

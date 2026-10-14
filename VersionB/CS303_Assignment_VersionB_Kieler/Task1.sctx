@@ -1,0 +1,94 @@
+scchart Task1 {
+ 
+  //output 
+  output bool EW_R, EW_Y, EW_G
+  output bool NS_R, NS_Y, NS_G
+  //output
+  
+  //input time variables
+  input int t =0
+  const int t1 = 10
+  const int t2 = 10
+  const int t3 = 10
+  const int t4 = 10
+  const int t5 = 10
+  const int t6 = 10
+  //input time variables
+  
+  
+  region Intersection_Light{
+    //NSG
+    //red off green on if entry
+    //green off if exit
+    initial state NSG{
+      entry do {
+        NS_R = 0;
+        NS_G = 1;
+        EW_R = 1
+      }
+      exit do NS_G = 0
+    }
+    if t >= t1 do t =0 go to NSY
+    //if t1 reached, reset t and go NSY
+    //NSG
+    
+    
+    //NYS
+    //yellow on if entry
+    //yellow off if exit
+    state NSY{
+      entry do NS_Y = 1
+      exit do NS_Y = 0
+    }
+    if t >= t2 do t =0 go to AllRed1
+    //if t2 reached, reset t and go allred1
+    //NSY
+    
+    //AllRed1
+    //all red on if entry
+    state AllRed1{
+      entry do {
+        NS_R = 1;
+        EW_R =1
+      }
+    }
+    if t >= t3 do t =0 go to EWG
+    //if t3 reached, reset t and go EWG
+    //Allred1
+    
+    
+    //EWG
+    state EWG{
+      entry do {
+        EW_R = 0;
+        EW_G = 1;
+        NS_R = 1;
+      }
+      exit do EW_G = 0
+    }
+    if t >= t4 do t =0 go to EWY
+    //EWG
+    
+    
+    //EWY
+    state EWY{
+      entry do EW_Y = 1
+      exit do EW_Y = 0
+    }
+    if t >= t5 do t =0 go to AllRed2
+    //EWY
+    
+    
+    //AllRed2
+    state AllRed2{
+      entry do {
+        NS_R = 1;
+        EW_R =1
+      }
+    }
+    if t >= t6 do t =0 go to NSG
+    //if t6 reached, go back to NSG
+    //Allred2
+    
+  }
+}
