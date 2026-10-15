@@ -2,7 +2,6 @@
 //The simulation doesn't work in manual mode on my laptop but dynamic mode
 //Please use dynamic mode and look at the variables if manual mode doesn't work
 
-@ClocksUseSD
 scchart Task2 {
  
   //output 
@@ -15,9 +14,9 @@ scchart Task2 {
   //output
   
   //time variables
-  clock t =0
-  clock pNS =0
-  clock pEW =0
+  input int t =0
+  input int pNS =0
+  input int pEW =0
   const int t1 = 10
   const int t2 = 10
   const int t3 = 10
