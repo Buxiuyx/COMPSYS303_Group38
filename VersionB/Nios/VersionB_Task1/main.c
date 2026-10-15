@@ -46,5 +46,6 @@ int main()
 			t_flag=0;
 		}
 	}
+	fclose(lcd);
 	return 0;
 }
