@@ -44,10 +44,16 @@ int main()
 
 	while(1){
 //implement uart, update data.t1 to t6
+		//check if there is a new character
+		//read the first char(FIFO) each time calls it
 		int c = jtag_read_char();
+		//if c is not 0, there is a char recieved
 		if (c >= 0) {
+			//if it is the end of a string, then check through the string
 			if (c == '\n'){
-				index = 0;
+				//if the sscanf successfully write 6 values
+				//and the string in this format
+				//then write time value
 				if(sscanf(command,
 						"%4d,%4d,%4d,%4d,%4d,%4d",
 						&t1, &t2, &t3, &t4, &t5, &t6)==6){
@@ -60,8 +66,13 @@ int main()
 					printf("Time changed successfully!\n");
 					printf("%d,%d,%d,%d,%d,%d\n",
 						   t1, t2, t3, t4, t5, t6);
+					//reset index
+					index = 0;
 				}
 			}
+			//if no the end of the string
+			//and haven't reach the max size of command string
+			//write this character in to the command string
 			else if (index < 64 - 1){
 				command[index++] = (char)c;
 			}
