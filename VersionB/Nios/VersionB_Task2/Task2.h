@@ -47,7 +47,6 @@ typedef struct {
   char _g31;
   char _g33;
   char _g34;
-  char _g38;
   char _g39;
   char _g41;
   char _g42;
@@ -65,18 +64,18 @@ typedef struct {
   char _cg38;
   char _cg41;
   char _TERM;
-  char _pg23;
-  char _pg25;
-  char _pg5;
-  char _pg34;
-  char _pg2;
-  char _pg8;
-  char _pg11;
-  char _pg30;
-  char _pg19;
-  char _pg33;
-  char _pg14;
+  char _pg22;
   char _pg20;
+  char _pg5;
+  char _pg7;
+  char _pg23;
+  char _pg2;
+  char _pg10;
+  char _pg25;
+  char _pg19;
+  char _pg17;
+  char _pg34;
+  char _pg14;
 } TickData;
 
 void reset(TickData* d);

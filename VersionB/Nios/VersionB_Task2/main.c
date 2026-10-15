@@ -48,6 +48,12 @@ int main()
 				#define CLEAR_LCD_STRING "[2J"
 				fprintf(lcd, "%c%s", ESC, CLEAR_LCD_STRING);
 				fprintf(lcd, "time: %i", data.t);
+				if(data.EWrequest){
+					fprintf(lcd,"EW");
+				}
+				if(data.NSrequest){
+					fprintf(lcd,"NS");
+				}
 				fflush(lcd);
 				t_print = data.t;
 			}

@@ -67,7 +67,7 @@ scchart Task2 {
       entry do NSserve = 1
       exit do NS_Y = 0
     }
-    if t >= t2 do t =0 go to AllRed1
+    if t >= t2 do {t =0; NSserve =0} go to AllRed1
     //if t2 reached, reset t and go allred1
     //NSY
     
@@ -110,7 +110,7 @@ scchart Task2 {
       entry do EWserve = 1
       exit do EW_Y = 0
     }
-    if t >= t5 do t =0 go to AllRed2
+    if t >= t5 do {t =0; EWserve =0} go to AllRed2
     //EWY
     
     
