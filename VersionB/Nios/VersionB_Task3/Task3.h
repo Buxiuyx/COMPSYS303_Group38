@@ -1,0 +1,92 @@
+#ifndef TASK3_H
+#define TASK3_H
+/*
+ * Automatically generated C code by
+ * KIELER SCCharts - The Key to Efficient Modeling
+ *
+ * http://rtsys.informatik.uni-kiel.de/kieler
+ */
+
+
+typedef struct {
+  char EW_R;
+  char EW_Y;
+  char EW_G;
+  char NS_R;
+  char NS_Y;
+  char NS_G;
+  char EW_P;
+  char NS_P;
+  char EWraised;
+  char NSraised;
+  int t;
+  int pNS;
+  int pEW;
+  int t1;
+  int t2;
+  int t3;
+  int t4;
+  int t5;
+  int t6;
+  int tPed;
+  char EWrequest;
+  char NSrequest;
+  char EWserve;
+  char NSserve;
+  char _g2;
+  char _g4;
+  char _g5;
+  char _g7;
+  char _g8;
+  char _g10;
+  char _g11;
+  char _g13;
+  char _g14;
+  char _g16;
+  char _g17;
+  char _g19;
+  char _g20;
+  char _g22;
+  char _g23;
+  char _g25;
+  char _g26;
+  char _g30;
+  char _g31;
+  char _g33;
+  char _g34;
+  char _g39;
+  char _g41;
+  char _g42;
+  char _GO;
+  char _cg4;
+  char _cg7;
+  char _cg10;
+  char _cg13;
+  char _cg16;
+  char _cg19;
+  char _cg22;
+  char _cg25;
+  char _cg30;
+  char _cg33;
+  char _cg38;
+  char _cg41;
+  char _TERM;
+  char _pg22;
+  char _pg20;
+  char _pg5;
+  char _pg7;
+  char _pg23;
+  char _pg2;
+  char _pg10;
+  char _pg25;
+  char _pg19;
+  char _pg17;
+  char _pg34;
+  char _pg14;
+} TickData;
+
+void reset(TickData* d);
+void logic(TickData* d);
+void tick(TickData* d);
+
+#endif /* !TASK3_H */
