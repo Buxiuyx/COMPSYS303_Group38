@@ -142,7 +142,8 @@ ACDS_VERSION := 18.1
 ELF := VersionB_Task1.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := hello_world.c
+C_SRCS += Task1.c
+C_SRCS += main.c
 CXX_SRCS :=
 ASM_SRCS :=
 
