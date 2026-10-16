@@ -4,6 +4,8 @@
 #include <altera_avalon_jtag_uart_regs.h>
 #include <stdio.h>
 #include "sys/alt_alarm.h"
+#include <fcntl.h>
+#include <unistd.h>
 #include <sys/alt_stdio.h>
 #include "Task3.h"
 
@@ -13,19 +15,9 @@ alt_u32 timer_isr_function(void* pointer){
 	return 1000;
 }
 
-int jtag_read_char(void)
-{
-    unsigned int character =
-        IORD_ALTERA_AVALON_JTAG_UART_DATA(JTAG_UART_BASE);
-    if (character & ALTERA_AVALON_JTAG_UART_DATA_RVALID_MSK) {
-        return character & ALTERA_AVALON_JTAG_UART_DATA_DATA_MSK;
-    }
-
-    return -1;
-}
-
 int main()
 {
+	printf("Started\n");
 	FILE* lcd;
 	alt_alarm timer;
 	int t_flag = 0;
@@ -39,21 +31,25 @@ int main()
 	reset(&data);
 
 	alt_alarm_start(&timer, 1000, timer_isr_function, &t_flag);
-
 	lcd = fopen(LCD_NAME,"w");
+	fcntl(STDIN_FILENO, F_SETFL, O_NONBLOCK);
 
 	while(1){
 //implement uart, update data.t1 to t6
 		//check if there is a new character
 		//read the first char(FIFO) each time calls it
-		int c = jtag_read_char();
+		int c = -1;
+		if(is_char_available()){
+			c = alt_getchar();
+		}
 		//if c is not 0, there is a char recieved
 		if (c >= 0) {
 			//if it is the end of a string, then check through the string
-			if (c == '\n'){
+			if (c == '\n' || c == '\r'){
 				//if the sscanf successfully write 6 values
 				//and the string in this format
 				//then write time value
+				command[index] = '\0';
 				if(sscanf(command,
 						"%4d,%4d,%4d,%4d,%4d,%4d",
 						&t1, &t2, &t3, &t4, &t5, &t6)==6){
@@ -68,6 +64,9 @@ int main()
 						   t1, t2, t3, t4, t5, t6);
 					//reset index
 					index = 0;
+				}
+				else{
+					printf("invalid command");
 				}
 			}
 			//if no the end of the string
