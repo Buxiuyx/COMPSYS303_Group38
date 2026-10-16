@@ -39,9 +39,8 @@ int main()
 		//check if there is a new character
 		//read the first char(FIFO) each time calls it
 		int c = -1;
-		if(is_char_available()){
-			c = alt_getchar();
-		}
+		c = alt_getchar();
+
 		//if c is not 0, there is a char recieved
 		if (c >= 0) {
 			//if it is the end of a string, then check through the string
