@@ -70,3 +70,19 @@ release/
 # OS-Generated Files
 .DS_Store
 Thumbs.db
+
+# Block the entire auto-generated BSP directory contents
+# (Except for the settings template file)
+VersionB/Nios/VersionB_Task1_bsp/*
+!VersionB/Nios/VersionB_Task1_bsp/settings.bsp
+
+# Ignore the main application Makefile completely
+VersionB/Nios/VersionB_Task1/Makefile
+
+# Track the BSP Makefile template, but ignore the temporary files it makes
+!VersionB/Nios/VersionB_Task1_bsp/Makefile
+VersionB/Nios/VersionB_Task1_bsp/public.mk
+VersionB/Nios/VersionB_Task1_bsp/generated.x
+**/obj/
+!.project
+!.cproject
