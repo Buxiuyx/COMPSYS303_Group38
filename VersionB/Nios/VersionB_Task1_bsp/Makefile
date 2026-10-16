@@ -101,7 +101,7 @@ ACDS_VERSION := 18.1
 # BUILD_NUMBER: 625
 
 SETTINGS_FILE := settings.bsp
-SOPC_FILE := D:/GitHub/COMPSYS303_Group38/VersionB/DE2-115/nios2_system.sopcinfo
+SOPC_FILE := ../../DE2-115/nios2_system.sopcinfo
 
 #-------------------------------------------------------------------------------
 #                             TOOL & COMMAND DEFINITIONS

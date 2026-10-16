@@ -16,7 +16,6 @@ target/
 # ===== KIELER / Eclipse workspace =====
 .metadata/
 .settings/
-.project
 .classpath
 
 # ===== IDE / editor files =====
@@ -37,10 +36,7 @@ desktop.ini
 
 # Eclipse & CDT Metadata
 .metadata/
-.settings/
-.project
 .classpath
-.cproject
 .loadpath
 .recommenders
 *.launch
