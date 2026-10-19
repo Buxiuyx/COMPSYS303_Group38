@@ -7,7 +7,7 @@
 
 #include "lib/cJSON.h"
 
-#include "Task2.h"
+#include "Task3.h"
 
 // The data for the model
 TickData model;
@@ -52,6 +52,41 @@ void receiveVariables() {
         item = cJSON_GetObjectItemCaseSensitive(root, "deltaT");
         if(item != NULL) {
             model.deltaT = item->valuedouble;
+        }
+        // Receive t1
+        item = cJSON_GetObjectItemCaseSensitive(root, "t1");
+        if(item != NULL) {
+            model.t1 = item->valueint;
+        }
+        // Receive t2
+        item = cJSON_GetObjectItemCaseSensitive(root, "t2");
+        if(item != NULL) {
+            model.t2 = item->valueint;
+        }
+        // Receive t3
+        item = cJSON_GetObjectItemCaseSensitive(root, "t3");
+        if(item != NULL) {
+            model.t3 = item->valueint;
+        }
+        // Receive t4
+        item = cJSON_GetObjectItemCaseSensitive(root, "t4");
+        if(item != NULL) {
+            model.t4 = item->valueint;
+        }
+        // Receive t5
+        item = cJSON_GetObjectItemCaseSensitive(root, "t5");
+        if(item != NULL) {
+            model.t5 = item->valueint;
+        }
+        // Receive t6
+        item = cJSON_GetObjectItemCaseSensitive(root, "t6");
+        if(item != NULL) {
+            model.t6 = item->valueint;
+        }
+        // Receive tPed
+        item = cJSON_GetObjectItemCaseSensitive(root, "tPed");
+        if(item != NULL) {
+            model.tPed = item->valueint;
         }
         // Receive EW_G
         item = cJSON_GetObjectItemCaseSensitive(root, "EW_G");
@@ -538,11 +573,6 @@ void receiveVariables() {
         if(item != NULL) {
             model._g113_e2 = item->valueint;
         }
-        // Receive _g114
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g114");
-        if(item != NULL) {
-            model._g114 = item->valueint;
-        }
         // Receive _g116
         item = cJSON_GetObjectItemCaseSensitive(root, "_g116");
         if(item != NULL) {
@@ -617,11 +647,6 @@ void receiveVariables() {
         item = cJSON_GetObjectItemCaseSensitive(root, "_g130");
         if(item != NULL) {
             model._g130 = item->valueint;
-        }
-        // Receive _g134
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g134");
-        if(item != NULL) {
-            model._g134 = item->valueint;
         }
         // Receive _g154
         item = cJSON_GetObjectItemCaseSensitive(root, "_g154");
@@ -1018,11 +1043,6 @@ void receiveVariables() {
         if(item != NULL) {
             model._pg100 = item->valueint;
         }
-        // Receive _pg105
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg105");
-        if(item != NULL) {
-            model._pg105 = item->valueint;
-        }
         // Receive _pg106
         item = cJSON_GetObjectItemCaseSensitive(root, "_pg106");
         if(item != NULL) {
@@ -1033,20 +1053,10 @@ void receiveVariables() {
         if(item != NULL) {
             model._pg109 = item->valueint;
         }
-        // Receive _pg113
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg113");
+        // Receive _pg112
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg112");
         if(item != NULL) {
-            model._pg113 = item->valueint;
-        }
-        // Receive _pg113_e2
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg113_e2");
-        if(item != NULL) {
-            model._pg113_e2 = item->valueint;
-        }
-        // Receive _pg114
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg114");
-        if(item != NULL) {
-            model._pg114 = item->valueint;
+            model._pg112 = item->valueint;
         }
         // Receive _pg116
         item = cJSON_GetObjectItemCaseSensitive(root, "_pg116");
@@ -1078,11 +1088,6 @@ void receiveVariables() {
         if(item != NULL) {
             model._pg13 = item->valueint;
         }
-        // Receive _pg134
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg134");
-        if(item != NULL) {
-            model._pg134 = item->valueint;
-        }
         // Receive _pg17
         item = cJSON_GetObjectItemCaseSensitive(root, "_pg17");
         if(item != NULL) {
@@ -1093,25 +1098,25 @@ void receiveVariables() {
         if(item != NULL) {
             model._pg17_e2 = item->valueint;
         }
-        // Receive _pg36
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg36");
+        // Receive _pg18
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg18");
         if(item != NULL) {
-            model._pg36 = item->valueint;
+            model._pg18 = item->valueint;
+        }
+        // Receive _pg20
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg20");
+        if(item != NULL) {
+            model._pg20 = item->valueint;
+        }
+        // Receive _pg29
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg29");
+        if(item != NULL) {
+            model._pg29 = item->valueint;
         }
         // Receive _pg4
         item = cJSON_GetObjectItemCaseSensitive(root, "_pg4");
         if(item != NULL) {
             model._pg4 = item->valueint;
-        }
-        // Receive _pg42
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg42");
-        if(item != NULL) {
-            model._pg42 = item->valueint;
-        }
-        // Receive _pg45
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg45");
-        if(item != NULL) {
-            model._pg45 = item->valueint;
         }
         // Receive _pg52
         item = cJSON_GetObjectItemCaseSensitive(root, "_pg52");
@@ -1158,10 +1163,30 @@ void receiveVariables() {
         if(item != NULL) {
             model._pg81 = item->valueint;
         }
+        // Receive _pg84
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg84");
+        if(item != NULL) {
+            model._pg84 = item->valueint;
+        }
         // Receive _pg9
         item = cJSON_GetObjectItemCaseSensitive(root, "_pg9");
         if(item != NULL) {
             model._pg9 = item->valueint;
+        }
+        // Receive _pg90
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg90");
+        if(item != NULL) {
+            model._pg90 = item->valueint;
+        }
+        // Receive _pg96
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg96");
+        if(item != NULL) {
+            model._pg96 = item->valueint;
+        }
+        // Receive _pg98
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg98");
+        if(item != NULL) {
+            model._pg98 = item->valueint;
         }
         // Receive _taken_transitions
         item = cJSON_GetObjectItemCaseSensitive(root, "_taken_transitions");
@@ -1202,6 +1227,20 @@ void sendVariables(int send_interface) {
     cJSON_AddItemToObject(root, "NSraised", cJSON_CreateBool(model.NSraised));
     // Send deltaT
     cJSON_AddItemToObject(root, "deltaT", cJSON_CreateNumber(model.deltaT));
+    // Send t1
+    cJSON_AddItemToObject(root, "t1", cJSON_CreateNumber(model.t1));
+    // Send t2
+    cJSON_AddItemToObject(root, "t2", cJSON_CreateNumber(model.t2));
+    // Send t3
+    cJSON_AddItemToObject(root, "t3", cJSON_CreateNumber(model.t3));
+    // Send t4
+    cJSON_AddItemToObject(root, "t4", cJSON_CreateNumber(model.t4));
+    // Send t5
+    cJSON_AddItemToObject(root, "t5", cJSON_CreateNumber(model.t5));
+    // Send t6
+    cJSON_AddItemToObject(root, "t6", cJSON_CreateNumber(model.t6));
+    // Send tPed
+    cJSON_AddItemToObject(root, "tPed", cJSON_CreateNumber(model.tPed));
     // Send EW_G
     cJSON_AddItemToObject(root, "EW_G", cJSON_CreateBool(model.EW_G));
     // Send EW_P
@@ -1396,8 +1435,6 @@ void sendVariables(int send_interface) {
     cJSON_AddItemToObject(root, "_g113", cJSON_CreateBool(model._g113));
     // Send _g113_e2
     cJSON_AddItemToObject(root, "_g113_e2", cJSON_CreateBool(model._g113_e2));
-    // Send _g114
-    cJSON_AddItemToObject(root, "_g114", cJSON_CreateBool(model._g114));
     // Send _g116
     cJSON_AddItemToObject(root, "_g116", cJSON_CreateBool(model._g116));
     // Send _g118
@@ -1428,8 +1465,6 @@ void sendVariables(int send_interface) {
     cJSON_AddItemToObject(root, "_g13", cJSON_CreateBool(model._g13));
     // Send _g130
     cJSON_AddItemToObject(root, "_g130", cJSON_CreateBool(model._g130));
-    // Send _g134
-    cJSON_AddItemToObject(root, "_g134", cJSON_CreateBool(model._g134));
     // Send _g154
     cJSON_AddItemToObject(root, "_g154", cJSON_CreateBool(model._g154));
     // Send _g16
@@ -1588,18 +1623,12 @@ void sendVariables(int send_interface) {
     cJSON_AddItemToObject(root, "_pg10", cJSON_CreateBool(model._pg10));
     // Send _pg100
     cJSON_AddItemToObject(root, "_pg100", cJSON_CreateBool(model._pg100));
-    // Send _pg105
-    cJSON_AddItemToObject(root, "_pg105", cJSON_CreateBool(model._pg105));
     // Send _pg106
     cJSON_AddItemToObject(root, "_pg106", cJSON_CreateBool(model._pg106));
     // Send _pg109
     cJSON_AddItemToObject(root, "_pg109", cJSON_CreateBool(model._pg109));
-    // Send _pg113
-    cJSON_AddItemToObject(root, "_pg113", cJSON_CreateBool(model._pg113));
-    // Send _pg113_e2
-    cJSON_AddItemToObject(root, "_pg113_e2", cJSON_CreateBool(model._pg113_e2));
-    // Send _pg114
-    cJSON_AddItemToObject(root, "_pg114", cJSON_CreateBool(model._pg114));
+    // Send _pg112
+    cJSON_AddItemToObject(root, "_pg112", cJSON_CreateBool(model._pg112));
     // Send _pg116
     cJSON_AddItemToObject(root, "_pg116", cJSON_CreateBool(model._pg116));
     // Send _pg120
@@ -1612,20 +1641,18 @@ void sendVariables(int send_interface) {
     cJSON_AddItemToObject(root, "_pg128", cJSON_CreateBool(model._pg128));
     // Send _pg13
     cJSON_AddItemToObject(root, "_pg13", cJSON_CreateBool(model._pg13));
-    // Send _pg134
-    cJSON_AddItemToObject(root, "_pg134", cJSON_CreateBool(model._pg134));
     // Send _pg17
     cJSON_AddItemToObject(root, "_pg17", cJSON_CreateBool(model._pg17));
     // Send _pg17_e2
     cJSON_AddItemToObject(root, "_pg17_e2", cJSON_CreateBool(model._pg17_e2));
-    // Send _pg36
-    cJSON_AddItemToObject(root, "_pg36", cJSON_CreateBool(model._pg36));
+    // Send _pg18
+    cJSON_AddItemToObject(root, "_pg18", cJSON_CreateBool(model._pg18));
+    // Send _pg20
+    cJSON_AddItemToObject(root, "_pg20", cJSON_CreateBool(model._pg20));
+    // Send _pg29
+    cJSON_AddItemToObject(root, "_pg29", cJSON_CreateBool(model._pg29));
     // Send _pg4
     cJSON_AddItemToObject(root, "_pg4", cJSON_CreateBool(model._pg4));
-    // Send _pg42
-    cJSON_AddItemToObject(root, "_pg42", cJSON_CreateBool(model._pg42));
-    // Send _pg45
-    cJSON_AddItemToObject(root, "_pg45", cJSON_CreateBool(model._pg45));
     // Send _pg52
     cJSON_AddItemToObject(root, "_pg52", cJSON_CreateBool(model._pg52));
     // Send _pg58
@@ -1644,8 +1671,16 @@ void sendVariables(int send_interface) {
     cJSON_AddItemToObject(root, "_pg77", cJSON_CreateBool(model._pg77));
     // Send _pg81
     cJSON_AddItemToObject(root, "_pg81", cJSON_CreateBool(model._pg81));
+    // Send _pg84
+    cJSON_AddItemToObject(root, "_pg84", cJSON_CreateBool(model._pg84));
     // Send _pg9
     cJSON_AddItemToObject(root, "_pg9", cJSON_CreateBool(model._pg9));
+    // Send _pg90
+    cJSON_AddItemToObject(root, "_pg90", cJSON_CreateBool(model._pg90));
+    // Send _pg96
+    cJSON_AddItemToObject(root, "_pg96", cJSON_CreateBool(model._pg96));
+    // Send _pg98
+    cJSON_AddItemToObject(root, "_pg98", cJSON_CreateBool(model._pg98));
     // Send _taken_transitions
     array = cJSON_CreateArray();
     for (int i0 = 0; i0 < 12; i0++) {
@@ -1684,6 +1719,48 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("float"));
         cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "deltaT", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("input"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("int"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "t1", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("input"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("int"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "t2", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("input"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("int"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "t3", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("input"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("int"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "t4", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("input"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("int"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "t5", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("input"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("int"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "t6", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("input"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("int"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "tPed", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("output"));
@@ -2332,12 +2409,6 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g114", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "_g116", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
@@ -2425,12 +2496,6 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "_g130", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g134", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
@@ -2925,13 +2990,6 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg105", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "_pg106", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
@@ -2946,21 +3004,7 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg113", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg113_e2", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg114", info);
+        cJSON_AddItemToObject(interface, "_pg112", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
@@ -3009,13 +3053,6 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg134", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "_pg17", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
@@ -3030,7 +3067,21 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg36", info);
+        cJSON_AddItemToObject(interface, "_pg18", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
+        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_pg20", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
+        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_pg29", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
@@ -3038,20 +3089,6 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "_pg4", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg42", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg45", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
@@ -3121,7 +3158,35 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_pg84", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
+        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "_pg9", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
+        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_pg90", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
+        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_pg96", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
+        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_pg98", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("sccharts-generated"));

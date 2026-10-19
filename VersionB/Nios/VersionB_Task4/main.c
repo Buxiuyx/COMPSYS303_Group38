@@ -41,6 +41,7 @@ int main()
 	int t_print = -1;
 	int key_value;
 	int keys;
+	int t_changed = 0;
 	char command[64];
 	int index = 0;
 	int t1,t2,t3,t4,t5,t6 = 10;
@@ -105,13 +106,8 @@ int main()
 					if(sscanf(command,
 							"%4d,%4d,%4d,%4d,%4d,%4d",
 							&t1, &t2, &t3, &t4, &t5, &t6)==6){
-						data.t1 = t1;
-						data.t2 = t2;
-						data.t3 = t3;
-						data.t4 = t4;
-						data.t5 = t5;
-						data.t6 = t6;
-						printf("Time changed successfully!\n");
+						t_changed = 1;
+						printf("Time passed successfully!\n");
 						printf("%d,%d,%d,%d,%d,%d\n",
 							   t1, t2, t3, t4, t5, t6);
 						//reset index
@@ -127,6 +123,16 @@ int main()
 				else if (index < 64 - 1){
 					command[index++] = (char)c;
 				}
+			}
+			if(data.NS_R && data.EW_R && t_changed){
+				data.t1 = t1;
+				data.t2 = t2;
+				data.t3 = t3;
+				data.t4 = t4;
+				data.t5 = t5;
+				data.t6 = t6;
+				t_changed = 0;
+				printf("Time passed successfully!\n");
 			}
 		}
 		//Task 4
@@ -144,12 +150,12 @@ int main()
 				printf("Camera Activated \n");
 				data.Camera_activated =0;
 			}
-			if(data.EW_Vehicle_Snapshot ==1 | data.NS_Vehicle_Snapshot ==1){
+			if(data.EW_Vehicle_Snapshot == 1 || data.NS_Vehicle_Snapshot ==1){
 				printf("Snapshot taken \n");
 				data.EW_Vehicle_Snapshot =0;
 				data.NS_Vehicle_Snapshot =0;
 			}
-			if(data.EW_Vehicle_Leave ==1 | data.NS_Vehicle_Leave ==1){
+			if(data.EW_Vehicle_Leave ==1 || data.NS_Vehicle_Leave ==1){
 				printf("Vehicle leave \n");
 				data.EW_Vehicle_Leave =0;
 				data.NS_Vehicle_Leave =0;
